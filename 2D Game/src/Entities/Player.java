@@ -39,12 +39,12 @@ public class Player extends GameObject
 
 	public void render(Graphics g)
 	{
-
+		super.render(g);
 		g.setColor(Color.black);
-		g.fillRect(x - 1, y - 1, 16, 16);
+		g.fillRect(drawX - 1, drawY - 1, 16, 16);
 		g.setColor(Color.red);
-		g.fillRect(x, y, 15, 15);
-
+		g.fillRect(drawX, drawY, 15, 15);
+		System.out.println(drawX + " " + drawY);
 	}
 
 	public void setGoingUp(boolean goingUp)

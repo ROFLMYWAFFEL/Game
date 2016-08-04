@@ -36,6 +36,7 @@ public class Engine extends Canvas implements Runnable
 	public static ArrayList<GameObject> Entities = new ArrayList<GameObject>();
 	
 	static Player p;
+	public static Camera cam;
 	
 	static KeyInput kPut = new KeyInput();
 
@@ -59,7 +60,8 @@ public class Engine extends Canvas implements Runnable
 	public void init()
 	{
 		timer.start();
-		p = new Player(WIDTH / 2, HEIGHT / 2);
+		p = new Player((WIDTH / 2) - 8, (HEIGHT / 2) - 8);
+		cam = new Camera(p);
 		Entities.add(p);
 	}
 
