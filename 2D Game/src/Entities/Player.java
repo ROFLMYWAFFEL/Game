@@ -6,12 +6,13 @@ import java.awt.Graphics;
 public class Player extends GameObject
 {
 
-	public boolean goingUp = false, goingDown = false, goingLeft = false,
-			goingRight = false;
+	public boolean goingUp = false, goingDown = false, goingLeft = false, goingRight = false;
 
 	public Player(int x, int y)
 	{
 		super(x, y);
+		maxHp = 10;
+		hp = 10;
 	}
 
 	public void tick()
@@ -44,7 +45,6 @@ public class Player extends GameObject
 		g.fillRect(drawX - 1, drawY - 1, 16, 16);
 		g.setColor(Color.red);
 		g.fillRect(drawX, drawY, 15, 15);
-		System.out.println(drawX + " " + drawY);
 	}
 
 	public void setGoingUp(boolean goingUp)

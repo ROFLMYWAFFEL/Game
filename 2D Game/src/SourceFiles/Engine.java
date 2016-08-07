@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.Timer;
 
+import Entities.BasicNPC;
 import Entities.GameObject;
 import Entities.Player;
 
@@ -30,12 +31,12 @@ public class Engine extends Canvas implements Runnable
 	static Engine game;
 
 	static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	public static final int HEIGHT = screenSize.height - 44;
-	public static final int WIDTH = screenSize.width - 15;
+	public static final int HEIGHT = screenSize.height;
+	public static final int WIDTH = screenSize.width;
 
 	public static ArrayList<GameObject> Entities = new ArrayList<GameObject>();
 	
-	static Player p;
+	public static Player p;
 	public static Camera cam;
 	
 	static KeyInput kPut = new KeyInput();
@@ -62,14 +63,17 @@ public class Engine extends Canvas implements Runnable
 		timer.start();
 		p = new Player((WIDTH / 2) - 8, (HEIGHT / 2) - 8);
 		cam = new Camera(p);
+		Entities.add(new BasicNPC(0,0));
 		Entities.add(p);
+		Entities.add(cam);
 	}
 
 	public void tick()
 	{
 		@SuppressWarnings("unchecked")
 		ArrayList<GameObject> TempEntities = (ArrayList<GameObject>) Entities.clone();
-		for(GameObject e : TempEntities) {
+		for(GameObject e : TempEntities) 
+		{
 			e.tick();
 		}
 	}
@@ -93,6 +97,8 @@ public class Engine extends Canvas implements Runnable
 
 		for (GameObject e : TempEntities)
 		{
+			e.updateDrawAxis();
+			if(e.getDrawX() < WIDTH && e.getDrawX() > 0 && e.getDrawY() > 0 && e.getDrawY() < HEIGHT)
 			e.render(g);
 		}
 

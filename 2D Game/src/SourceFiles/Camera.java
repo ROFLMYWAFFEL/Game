@@ -26,6 +26,6 @@ public class Camera extends GameObject{
 	
 	public void render(Graphics g)
 	{
-		
+		//intentionally blank
 	}
 }

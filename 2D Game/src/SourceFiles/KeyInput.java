@@ -31,6 +31,8 @@ public class KeyInput implements KeyListener
    temp.setGoingLeft(false);
   if(arg0.getKeyCode() == KeyEvent.VK_D)
    temp.setGoingRight(false);
+  if(arg0.getKeyCode() == KeyEvent.VK_ESCAPE)
+   System.exit(0);
  }
 
  public void keyTyped(KeyEvent arg0) {
