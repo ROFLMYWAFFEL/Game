@@ -8,11 +8,11 @@ import SourceFiles.Engine;
 
 public class GameObject
 {
-	protected int x, y, drawX = 0, drawY = 0, hp, maxHp = 1;
+	protected int drawX = 0, drawY = 0, hp, maxHp = 1;
 	
-	protected double velX, velY, speed;
+	protected double x, y, velX, velY, speed;
 	
-	public GameObject(int x, int y) {
+	public GameObject(double x, double y) {
 		this.x = x;
 		this.y = y;
 		hp = maxHp;
@@ -34,8 +34,8 @@ public class GameObject
 //		
 //		velX = ((-speed / distance ) * diffX);
 //		velY = ((-speed / distance) * diffY);
-		x += Math.round(velX);
-		y += Math.round(velY);
+		x += velX;
+		y += velY;
 		
 	}
 	
@@ -51,13 +51,13 @@ public class GameObject
 	}
 	public void updateDrawAxis()
 	{
-		drawX = (this.x - Engine.cam.getX() + (Engine.WIDTH/2));
-		drawY = (this.y - Engine.cam.getY() + (Engine.HEIGHT/2));
+		drawX = (int)(this.x - Engine.cam.getX() + (Engine.WIDTH/2));
+		drawY = (int)(this.y - Engine.cam.getY() + (Engine.HEIGHT/2));
 	}
-	public int getX() {
+	public double getX() {
 		return x; 
 	}
-	public int getY() {
+	public double getY() {
 		return y;
 	}
 	public int getDrawX() {
