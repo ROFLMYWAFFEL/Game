@@ -24,7 +24,6 @@ public class BasicNPC extends GameObject
 		
 		velX = ((-speed / distance ) * diffX);
 		velY = ((-speed / distance) * diffY);
-		System.out.println(x + " " + y);
 		super.tick();
 	}
 	public void render(Graphics g)
