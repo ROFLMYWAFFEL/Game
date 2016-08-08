@@ -16,8 +16,8 @@ public class BasicNPC extends GameObject
 	
 	public void tick()
 	{
-		int targetX = Engine.p.getX();
-		int targetY = Engine.p.getY();
+		int targetX = (int)Engine.p.getX();
+		int targetY = (int)Engine.p.getY();
 		double diffX = (x - targetX);
 		double diffY = (y - targetY);
 		double distance = Math.sqrt(Math.pow(x - targetX, 2) + (Math.pow(y - targetY, 2)));
